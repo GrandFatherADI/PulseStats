@@ -1,0 +1,55 @@
+{
+  "name": "Pulse Stats",
+  "apiVersion": "1.0.0",
+  "author": "Peter Jaquiery",
+  "version": "1.1.0",
+  "description": "Calculate min, mean and max pulse width stats",
+  "extensions": {
+    "PulseStats": {
+      "type": "DigitalMeasurement",
+      "entryPoint": "PulseStats.PulseStatsMeasurer",
+      "metrics": {
+        "pHMin": {
+          "name": "High Min",
+          "notation": "H<sub>min</sub>",
+          "units": "s"
+        },
+        "pHMean": {
+          "name": "High Mean",
+          "notation": "H<sub>mean</sub>",
+          "units": "s"
+        },
+        "pHSDev": {
+          "name": "High Std Dev",
+          "notation": "H<sub>SDev</sub>",
+          "units": "s"
+        },
+        "pHMax": {
+          "name": "High Max",
+          "notation": "H<sub>max</sub>",
+          "units": "s"
+        },
+        "pLMin": {
+          "name": "Low Min",
+          "notation": "L<sub>min</sub>",
+          "units": "s"
+        },
+        "pLMean": {
+          "name": "Low Mean",
+          "notation": "L<sub>mean</sub>",
+          "units": "s"
+        },
+        "pLSDev": {
+          "name": "Low Std Dev",
+          "notation": "L<sub>SDev</sub>",
+          "units": "s"
+        },
+        "pLMax": {
+          "name": "Low Max",
+          "notation": "L<sub>max</sub>",
+          "units": "s"
+        }
+      }
+    }
+  }
+}
