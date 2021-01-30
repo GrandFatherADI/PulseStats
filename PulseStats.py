@@ -74,14 +74,13 @@ class PulseStatsMeasurer(DigitalMeasurer):
             if self.lastState is None:
                 self.lastState = bitstate
 
+            if self.lastTime is None:
+                self.lastTime = t                
+
             if bitstate == self.lastState:
                 continue
 
-            self.lastState = bitstate
-
-            if self.lastTime is None:
-                self.lastTime = t
-                continue
+            self.lastState = bitstate            
 
             timeDelta = float(t - self.lastTime)
             self.lastTime = t
