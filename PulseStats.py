@@ -66,6 +66,8 @@ class PulseStatsMeasurer(DigitalMeasurer):
       * Iterate over data to get transitions in the form of pairs of
         `Time`, Bitstate (`True` for high, `False` for low)
 
+      * The first datum is at the first transition
+
     `Time` currently only allows taking a difference with another `Time`, to
     produce a `float` number of seconds
     '''
@@ -73,14 +75,9 @@ class PulseStatsMeasurer(DigitalMeasurer):
         for t, bitstate in data:
             if self.lastState is None:
                 self.lastState = bitstate
-
-            if bitstate == self.lastState:
-                continue
-
-            self.lastState = bitstate
-
-            if self.lastTime is None:
                 self.lastTime = t
+
+                # Cant generate stats for the first edge
                 continue
 
             timeDelta = float(t - self.lastTime)
